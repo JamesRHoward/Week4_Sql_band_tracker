@@ -15,6 +15,7 @@ namespace BandTracker
     [Fact]
     public void Venue_TestVenueIsEmptyAtFirst()
     {
+      //Arrange, Act
       int result = Venue.GetAll().Count;
 
       Assert.Equal(0, result);
@@ -28,6 +29,20 @@ namespace BandTracker
 
       //Assert
       Assert.Equal(firstVenue, secondVenue);
+    }
+    [Fact]
+    public void Test_Save_SavesObject1ToDatabase()
+    {
+      //Arrange
+      Venue testVenue = new Venue("Name");
+      testVenue.Save();
+
+      //Act
+      List<Venue> result = Venue.GetAll();
+      List<Venue> testList = new List<Venue>{testVenue};
+
+      //Assert
+      Assert.Equal(testList, result);
     }
   }
 }
