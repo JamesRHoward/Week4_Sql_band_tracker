@@ -74,10 +74,10 @@ namespace BandTracker
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("INSERT INTO venues (name) OUTPUT INSERTED.id VALUES (@Venue1Name);", conn);
+      SqlCommand cmd = new SqlCommand("INSERT INTO venues (name) OUTPUT INSERTED.id VALUES (@VenueName);", conn);
 
       SqlParameter nameParameter = new SqlParameter();
-      nameParameter.ParameterName = "@Venue1Name";
+      nameParameter.ParameterName = "@VenueName";
       nameParameter.Value = this.GetName();
       cmd.Parameters.Add(nameParameter);
       SqlDataReader rdr = cmd.ExecuteReader();
