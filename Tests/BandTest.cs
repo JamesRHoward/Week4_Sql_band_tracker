@@ -15,6 +15,7 @@ namespace BandTracker
     public void Dispose()
     {
       Band.DeleteAll();
+      Venue.DeleteAll();
     }
     [Fact]
     public void Band_TestBandIsEmptyAtFirst()
@@ -91,6 +92,26 @@ namespace BandTracker
       Band newBand = new Band("new Name", testBand.GetId());
 
       Assert.Equal(testBand, newBand);
+    }
+    [Fact]
+    public void Band_AddVenue_AddsVenueToBand()
+    {
+     //Arrange
+      Band testBand = new Band("Name");
+      testBand.Save();
+
+      Venue testVenue = new Venue("Venue name");
+      testVenue.Save();
+
+
+     //Act
+      testBand.AddVenue(testVenue);
+
+      List<Venue> result = testBand.GetVenues();
+      List<Venue> testList = new List<Venue>{testVenue};
+
+     //Assert
+      Assert.Equal(testList, result);
     }
   }
 }
