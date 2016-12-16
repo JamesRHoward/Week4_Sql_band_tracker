@@ -66,6 +66,15 @@ namespace BandTracker
         band.AddVenue(venue);
         return View["success.cshtml"];
       };
+      Get["venues/update/{id}"] = parameters =>{
+       Venue foundVenue = Venue.Find(parameters.id);
+       return View["venue_update.cshtml", foundVenue];
+      };
+      Patch["venues/update/{id}"] = parameters =>{
+        Venue foundVenue = Venue.Find(parameters.id);
+        foundVenue.Update(Request.Form["new-description"]);
+        return View["success.cshtml"];
+      };
     }
   }
 }
