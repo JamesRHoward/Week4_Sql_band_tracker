@@ -6,11 +6,15 @@ using System.Data.SqlClient;
 
 namespace BandTracker
 {
-  public class BandTest
+  public class BandTest : IDisposable
   {
     public BandTest()
     {
       DBConfiguration.ConnectionString = "Data Source=DESKTOP-86RQO71;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
+    }
+    public void Dispose()
+    {
+      Band.DeleteAll();
     }
     [Fact]
     public void Band_TestBandIsEmptyAtFirst()
