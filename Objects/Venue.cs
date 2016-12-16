@@ -142,11 +142,11 @@ namespace BandTracker
 
       SqlCommand cmd = new SqlCommand("DELETE FROM venues WHERE id = @VenueId; DELETE FROM bands_venues WHERE venue_id = @VenueId;", conn);
 
-      SqlParameter catId = new SqlParameter();
-      catId.ParameterName = "@VenueId";
-      catId.Value = this.GetId();
+      SqlParameter venueId = new SqlParameter();
+      venueId.ParameterName = "@VenueId";
+      venueId.Value = this.GetId();
 
-      cmd.Parameters.Add(catId);
+      cmd.Parameters.Add(venueId);
       cmd.ExecuteNonQuery();
 
       if (conn != null)
