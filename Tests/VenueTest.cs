@@ -117,5 +117,26 @@ namespace BandTracker
      //Assert
       Assert.Equal(testList, result);
     }
+    // [Fact]
+    // public void Venue_Delete_DeletesBandAssociationsFromDatabase()
+    // {
+    //   //Arrange
+    //   Venue testVenue = new Venue("Venue name");
+    //   testVenue.Save();
+    //
+    //   string testName = "Name";
+    //   Band testBand = new Band(testName);
+    //   testBand.Save();
+    //
+    //   //Act
+    //   testBand.AddVenue(testVenue);
+    //   testBand.Delete();
+    //
+    //   List<Band> resultVenueBands = testVenue.GetBands();
+    //   List<Band> testVenueBands = new List<Band> {};
+    //
+    //   //Assert
+    //   Assert.Equal(testVenueBands, resultVenueBands);
+    // }
   }
 }
