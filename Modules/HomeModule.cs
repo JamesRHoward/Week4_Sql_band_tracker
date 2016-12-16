@@ -90,6 +90,12 @@ namespace BandTracker
         foundVenue.Delete();
         return View["success.cshtml"];
       };
+      Delete["band/delete/{id}"] = parameters =>
+      {
+        Band foundBand = Band.Find(parameters.id);
+        foundBand.Delete();
+        return View["success.cshtml"];
+      };
     }
   }
 }
