@@ -36,7 +36,7 @@ namespace BandTracker
       Assert.Equal(firstVenue, secondVenue);
     }
     [Fact]
-    public void Venue_Save_SavesObject1ToDatabase()
+    public void Venue_Save_SavesVenueToDatabase()
     {
       //Arrange
       Venue testVenue = new Venue("Name");
@@ -50,7 +50,7 @@ namespace BandTracker
       Assert.Equal(testList, result);
     }
     [Fact]
-    public void Venue_Find_FindsObject1InDatabase()
+    public void Venue_Find_FindsVenueInDatabase()
     {
       //Arrange
       Venue testVenue = new Venue("Name");
@@ -62,6 +62,25 @@ namespace BandTracker
       //Assert
       Assert.Equal(testVenue, foundVenue);
     }
+    [Fact]
+    public void Venue_Delete_DeletesVenueFromDatabase()
+    {
+      //Arrange
+      string name1 = "Name";
+      Venue testVenue1 = new Venue(name1);
+      testVenue1.Save();
 
+      string name2 = "Other name";
+      Venue testVenue2 = new Venue(name2);
+      testVenue2.Save();
+
+      //Act
+      testVenue1.Delete();
+      List<Venue> resultVenues = Venue.GetAll();
+      List<Venue> testVenueList = new List<Venue> {testVenue2};
+
+      //Assert
+      Assert.Equal(testVenueList, resultVenues);
+    }
   }
 }
