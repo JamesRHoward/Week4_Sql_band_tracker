@@ -6,7 +6,7 @@ namespace BandTracker
 {
   public class Venue
   {
-    private int _id
+    private int _id;
     private string _name;
 
     public Venue(string Name, int Id = 0)
@@ -53,6 +53,7 @@ namespace BandTracker
       {
         conn.Close();
       }
+      return allVenues;
     }
   }
 }

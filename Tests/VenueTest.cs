@@ -10,7 +10,7 @@ namespace BandTracker
   {
     public VenueTest()
     {
-      DBConfiguration.ConnectionString = "Data Source=DESKTOP-86RQO71;Initial Catalog=template_test;Integrated Security=SSPI;";
+      DBConfiguration.ConnectionString = "Data Source=DESKTOP-86RQO71;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
     }
     [Fact]
     public void Venue_TestVenueIsEmptyAtFirst()
