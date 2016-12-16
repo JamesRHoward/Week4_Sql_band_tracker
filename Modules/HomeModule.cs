@@ -75,6 +75,15 @@ namespace BandTracker
         foundVenue.Update(Request.Form["new-description"]);
         return View["success.cshtml"];
       };
+      Get["bands/update/{id}"] = parameters =>{
+       Band foundBand = Band.Find(parameters.id);
+       return View["band_update.cshtml", foundBand];
+      };
+      Patch["bands/update/{id}"] = parameters =>{
+        Band foundBand = Band.Find(parameters.id);
+        foundBand.Update(Request.Form["new-description"]);
+        return View["success.cshtml"];
+      };
     }
   }
 }
