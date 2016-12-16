@@ -7,7 +7,13 @@ namespace BandTracker
   {
     public HomeModule()
     {
-      
+      Get["/"] = _ => {
+      return View["index.cshtml"];
+      };
+      Get["/venues"] = _ => {
+        List<Venue> allVenues = Venue.GetAll();
+        return View["venues.cshtml", allVenues];
+      };
     }
   }
 }
