@@ -81,5 +81,16 @@ namespace BandTracker
       //Assert
       Assert.Equal(testBandList, resultBands);
     }
+    [Fact]
+    public void Band_Update_UpdatesInDb()
+    {
+      Band testBand = new Band("Name");
+      testBand.Save();
+      testBand.Update("new Name");
+
+      Band newBand = new Band("new Name", testBand.GetId());
+
+      Assert.Equal(testBand, newBand);
+    }
   }
 }
